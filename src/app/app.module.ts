@@ -9,6 +9,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { PokimonCardComponent } from './components/pokimon-card/pokimon-card.component';
 import { PokimonListComponent } from './components/pokimon-list/pokimon-list.component';
 import { PokimonCartComponent } from './components/pokimon-cart/pokimon-cart.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 @NgModule({
   declarations: [

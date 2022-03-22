@@ -1,0 +1,12 @@
+.page-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    height: 45px;
+    background-color: burlywood;
+    width: 100%;
+}
