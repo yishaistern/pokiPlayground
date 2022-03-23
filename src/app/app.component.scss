@@ -1,12 +1,25 @@
 .page-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .header {
     position: sticky;
     top: 0;
-    height: 45px;
+    height: 75px;
     background-color: burlywood;
     width: 100%;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+}
+
+.main {
+    flex-grow: 1;
+}
+.card {
+    width: 250px;
+    background-color: red;
 }

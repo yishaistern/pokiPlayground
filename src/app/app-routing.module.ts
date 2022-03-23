@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PokimonCartComponent } from './components/pokimon-cart/pokimon-cart.component';
+import { PokimonfavoritesComponent } from './components/pokimon-favorites/pokimon-favorites.component';
 import { PokimonListComponent } from './components/pokimon-list/pokimon-list.component';
 
 const routes: Routes = [
@@ -12,8 +12,8 @@ const routes: Routes = [
        component: PokimonListComponent,
      },
      {
-      path: 'cart',
-      component: PokimonCartComponent,
+      path: 'favorites',
+      component: PokimonfavoritesComponent,
     }
    ]
  }

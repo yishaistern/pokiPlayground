@@ -8,9 +8,12 @@ import { MainComponent } from './components/main/main.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PokimonCardComponent } from './components/pokimon-card/pokimon-card.component';
 import { PokimonListComponent } from './components/pokimon-list/pokimon-list.component';
-import { PokimonCartComponent } from './components/pokimon-cart/pokimon-cart.component';
+import { PokimonfavoritesComponent } from './components/pokimon-favorites/pokimon-favorites.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
+import { StoreModule } from '@ngrx/store';
+import { pokimonsReducer, _pokimonsReducer } from './ngrx/reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -20,12 +23,17 @@ import {MatBadgeModule} from '@angular/material/badge';
     HeaderComponent,
     PokimonCardComponent,
     PokimonListComponent,
-    PokimonCartComponent
+    PokimonfavoritesComponent
   ],
   imports: [
     BrowserModule,
+    StoreModule.forRoot({ app: _pokimonsReducer}),
+    StoreDevtoolsModule.instrument(),
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatBadgeModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

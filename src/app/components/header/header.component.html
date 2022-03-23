@@ -1,1 +1,13 @@
-<p>header works!</p>
+<div class="header-wrapper">
+    <div class="home icon-wrapper">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+    </div>
+    <div class="thumb-up icon-wrapper" [matBadge]="favoritCount | async" matBadgeColor="warn">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          >
+                thumb_up
+            </mat-icon>
+    </div>
+</div>

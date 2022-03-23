@@ -3,6 +3,6 @@ export interface Pokimon {
     path: string;
 }
 
-export interface CartPokimon extends Pokimon {
+export interface favoritesPokimon extends Pokimon {
     timeStamp: number;
 }
