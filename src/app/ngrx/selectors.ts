@@ -1,10 +1,10 @@
 import { createSelector } from "@ngrx/store";
-import { State } from "../models/state";
+import { AppState } from "../models/state";
 
  
-export const selectFeature = (state: State) => state;
+export const selectFeature = (state: any) => state.app;
  
-export const selectFeatureCount = createSelector(
+export const selectFavorites = createSelector(
   selectFeature,
-  (state: State) => state.favorites
+  (state: AppState) => state.favorites
 );

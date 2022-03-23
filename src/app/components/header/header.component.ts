@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { map, Observable, of } from 'rxjs';
+import { selectFavorites } from 'src/app/ngrx/selectors';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,15 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  favoritCount: Observable<number> = of(0);
-  constructor() { }
+  favoritCount: Observable<number> | undefined;
+  constructor(
+    private store: Store
+  ) { }
 
   ngOnInit(): void {
+    this.favoritCount = this.store.select(selectFavorites).pipe(
+      map((favorites) => favorites.length)
+    )
   }
 
 }

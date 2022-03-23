@@ -14,6 +14,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { StoreModule } from '@ngrx/store';
 import { pokimonsReducer, _pokimonsReducer } from './ngrx/reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { PokimonEffects } from './ngrx/effect';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     StoreModule.forRoot({ app: _pokimonsReducer}),
+
     StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([PokimonEffects]),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
