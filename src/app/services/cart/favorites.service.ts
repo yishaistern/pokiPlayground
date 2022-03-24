@@ -23,8 +23,8 @@ export class favoritesService {
   /**
    * add new pokimon to favorites
    */
-  AddTofavorites(favorites: favoritesPokimon[], pokimon: Pokimon): Observable<favoritesPokimon[]> {
-    const newfavorites: favoritesPokimon[] = [ {...pokimon, timeStamp: new Date().getTime()}, ...favorites];
+  AddTofavorites(favorites: favoritesPokimon[], pokimon: Pokimon, index: number): Observable<favoritesPokimon[]> {
+    const newfavorites: favoritesPokimon[] = [ {...pokimon, timeStamp: new Date().getTime(), indexInDataSet: index}, ...favorites];
     localStorage.setItem(this.key, JSON.stringify(newfavorites));
     return of(newfavorites).pipe(delay(200));
   }
