@@ -5,4 +5,5 @@ export interface Pokimon {
 
 export interface favoritesPokimon extends Pokimon {
     timeStamp: number;
+    indexInDataSet: number;
 }

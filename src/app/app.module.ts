@@ -16,6 +16,7 @@ import { pokimonsReducer, _pokimonsReducer } from './ngrx/reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { PokimonEffects } from './ngrx/effect';
+import { PokimonImageComponent } from './components/pokimon-image/pokimon-image.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { PokimonEffects } from './ngrx/effect';
     HeaderComponent,
     PokimonCardComponent,
     PokimonListComponent,
-    PokimonfavoritesComponent
+    PokimonfavoritesComponent,
+    PokimonImageComponent
   ],
   imports: [
     BrowserModule,
