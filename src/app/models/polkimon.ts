@@ -1,6 +1,6 @@
 export interface Pokimon {
     name: string;
-    path: string;
+    url: string;
 }
 
 export interface favoritesPokimon extends Pokimon {
