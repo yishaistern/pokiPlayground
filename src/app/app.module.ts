@@ -18,6 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PokemonEffects } from './ngrx/effect';
 import { PokemonImageComponent } from './components/pokemon-image/pokemon-image.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({

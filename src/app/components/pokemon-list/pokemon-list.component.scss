@@ -1,0 +1,26 @@
+.table-wrapper {
+
+}
+
+.table-header {
+    position: sticky;
+    top: 75px;
+    background-color: #e1e1e1;
+    z-index: 1;
+    height: 85px;
+}
+
+.num {
+    text-align: center;
+}
+
+.row-item {
+    display: grid;
+    grid-template-columns: 40px 1fr 100px;
+    align-items: center;
+    border-bottom: 1px solid gold;
+}
+
+.tablecontent {
+    cursor: pointer;
+}

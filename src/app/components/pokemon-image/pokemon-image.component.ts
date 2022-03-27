@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pokemon-image',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemon-image.component.scss']
 })
 export class PokemonImageComponent implements OnInit {
-
+  @Input() counter: number = 0;
   constructor() { }
 
   ngOnInit(): void {

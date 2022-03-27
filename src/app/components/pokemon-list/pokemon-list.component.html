@@ -1,0 +1,12 @@
+<div class="table-wrapper">
+    <div class="table-header row-item">
+        <div class="num">num</div>
+        <div>name</div>
+        <div>avatar</div>
+    </div>
+    <div class="tablecontent row-item" *ngFor="let item of (list | async); index as i">
+        <div class="num">{{i + 1}}.</div>
+        <div class="name">{{item.name}}</div>
+        <app-pokemon-image [counter]="i + 1"></app-pokemon-image>
+    </div>
+</div>

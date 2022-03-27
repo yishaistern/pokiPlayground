@@ -8,3 +8,8 @@ export const selectFavorites = createSelector(
   selectFeature,
   (state: AppState) => state.favorites
 );
+
+export const selectPokemonList = createSelector(
+  selectFeature,
+  (state: AppState) => state.list.pokemons || []
+);

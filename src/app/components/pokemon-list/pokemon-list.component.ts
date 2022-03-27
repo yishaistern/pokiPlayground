@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
 import { getPokemonList } from 'src/app/ngrx/actions';
+import { selectPokemonList } from 'src/app/ngrx/selectors';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -8,13 +10,14 @@ import { getPokemonList } from 'src/app/ngrx/actions';
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
-
+  list: Observable<any[]> = of([]);
   constructor(
     private store: Store
   ) { }
 
   ngOnInit(): void {
     this.store.dispatch(getPokemonList());
+    this.list = this.store.select(selectPokemonList);
   }
 
 }
