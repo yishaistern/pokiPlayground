@@ -7,7 +7,7 @@ import { ListService } from '../services/list/list.service';
 import { getfavoritesSuccess } from './actions';
 
 @Injectable()
-export class PokimonEffects {
+export class PokemonEffects {
 
   loadMovies$ = createEffect(() => this.actions$.pipe(
     ofType('[favorites] get favorites'),
@@ -20,11 +20,11 @@ export class PokimonEffects {
     )
   );
 
-  loadPokimons$ = createEffect(() => this.actions$.pipe(
-    ofType( '[pokimon] get list'),
+  loadPokemons$ = createEffect(() => this.actions$.pipe(
+    ofType( '[pokemon] get list'),
     mergeMap(() => this.list.getList()
       .pipe(
-        map(list => ({ type:  '[pokimon] get list success', payload: { list: list} })),
+        map(list => ({ type:  '[pokemon] get list success', payload: { list: list} })),
         catchError(() => EMPTY)
       ))
     )

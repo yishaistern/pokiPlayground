@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PokimonfavoritesComponent } from './components/pokimon-favorites/pokimon-favorites.component';
-import { PokimonListComponent } from './components/pokimon-list/pokimon-list.component';
+import { PokemonfavoritesComponent } from './components/pokemon-favorites/pokemon-favorites.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 const routes: Routes = [
  {
@@ -9,11 +9,11 @@ const routes: Routes = [
    children: [
      {
        path: '',
-       component: PokimonListComponent,
+       component: PokemonListComponent,
      },
      {
       path: 'favorites',
-      component: PokimonfavoritesComponent,
+      component: PokemonfavoritesComponent,
     }
    ]
  }

@@ -1,9 +1,9 @@
-export interface Pokimon {
+export interface Pokemon {
     name: string;
     url: string;
 }
 
-export interface favoritesPokimon extends Pokimon {
+export interface favoritesPokemon extends Pokemon {
     timeStamp: number;
     indexInDataSet: number;
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Pokimon } from 'src/app/models/polkimon';
+import { Pokemon } from 'src/app/models/polkimon';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -12,6 +12,6 @@ export class ListService {
   constructor(private http: HttpClient) { }
 
   getList(): Observable<any> {
-    return this.http.get(this.apiBase + '/pokimon?limit=151');
+    return this.http.get(this.apiBase + 'pokemon?limit=151');
   }
 }

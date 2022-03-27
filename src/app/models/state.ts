@@ -1,12 +1,12 @@
-import { favoritesPokimon, Pokimon } from "./polkimon";
+import { favoritesPokemon, Pokemon } from "./polkimon";
 
 export interface AppState {
         card: any;
-        favorites: favoritesPokimon[];
+        favorites: favoritesPokemon[];
         cardOpen: boolean;
         list: {
             loading: boolean,
             loaded: boolean,
-            pokimons: Pokimon[],
+            pokemons: Pokemon[],
         }
 }

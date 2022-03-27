@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PokimonfavoritesComponent } from './pokimon-favorites.component';
+import { PokemonImageComponent } from './pokemon-image.component';
 
-describe('PokimonfavoritesComponent', () => {
-  let component: PokimonfavoritesComponent;
-  let fixture: ComponentFixture<PokimonfavoritesComponent>;
+describe('PokemonImageComponent', () => {
+  let component: PokemonImageComponent;
+  let fixture: ComponentFixture<PokemonImageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PokimonfavoritesComponent ]
+      declarations: [ PokemonImageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PokimonfavoritesComponent);
+    fixture = TestBed.createComponent(PokemonImageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
