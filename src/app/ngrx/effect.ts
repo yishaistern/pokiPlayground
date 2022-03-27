@@ -4,6 +4,7 @@ import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { favoritesService } from '../services/cart/favorites.service';
 import { ListService } from '../services/list/list.service';
+import { getfavoritesSuccess } from './actions';
 
 @Injectable()
 export class PokimonEffects {
@@ -12,7 +13,8 @@ export class PokimonEffects {
     ofType('[favorites] get favorites'),
     mergeMap(() => this.favoritesService.getLastfavorites()
       .pipe(
-        map(favorites => ({ type: '[favorites] get favorites success', payload: { list: favorites} })),
+        map(favorites => getfavoritesSuccess({list : favorites})),
+        
         catchError(() => EMPTY)
       ))
     )

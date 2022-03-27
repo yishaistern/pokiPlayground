@@ -12,11 +12,12 @@ import { PokimonfavoritesComponent } from './components/pokimon-favorites/pokimo
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import { StoreModule } from '@ngrx/store';
-import { pokimonsReducer, _pokimonsReducer } from './ngrx/reducer';
+import { _pokimonsReducer } from './ngrx/reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { PokimonEffects } from './ngrx/effect';
 import { PokimonImageComponent } from './components/pokimon-image/pokimon-image.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { PokimonImageComponent } from './components/pokimon-image/pokimon-image.
   imports: [
     BrowserModule,
     StoreModule.forRoot({ app: _pokimonsReducer}),
-
+    HttpClientModule,
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([PokimonEffects]),
     AppRoutingModule,
