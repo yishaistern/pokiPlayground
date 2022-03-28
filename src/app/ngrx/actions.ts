@@ -24,6 +24,11 @@ export const getfavoritesSuccess = createAction(
     props<{pokemon: Pokemon}>()
   );
 
+  export const likePkoemon = createAction(
+    '[pokemon] like Pokemon',
+    props<{pokemon: Pokemon}>()
+  );
+
   export const pokemonInfo = createAction(
     '[pokemon] card info',
     props<{pokemon: any}>()

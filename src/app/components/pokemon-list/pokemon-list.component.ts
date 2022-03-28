@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { Pokemon } from 'src/app/models/polkimon';
-import { getPokemonList } from 'src/app/ngrx/actions';
+import { getPokemonList, likePkoemon, openCard } from 'src/app/ngrx/actions';
 import { selectPokemonList } from 'src/app/ngrx/selectors';
 
 @Component({
@@ -21,8 +21,14 @@ export class PokemonListComponent implements OnInit {
     this.list = this.store.select(selectPokemonList);
   }
 
-  pickFavorit(item: Pokemon) {
-    
+  pickFavorit(pokemon: Pokemon) {
+    this.store.dispatch(openCard({pokemon}))
   }
+
+  likePokemon($event: any, item: Pokemon) {
+    $event.stopPropagation();
+    this.store.dispatch(likePkoemon({pokemon: item}));
+  }
+
 
 }
