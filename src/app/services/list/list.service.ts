@@ -16,4 +16,10 @@ export class ListService {
       map((res: any) => res.results)
     );
   }
+
+  getpokemon(pokemon: Pokemon): Observable<any> {
+    return this.http.get(pokemon.url).pipe(
+      map((res: any) => res)
+    );
+  }
 }

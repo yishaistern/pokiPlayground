@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Observable, of } from 'rxjs';
 import { getfavorites } from './ngrx/actions';
 
 @Component({
@@ -8,7 +9,7 @@ import { getfavorites } from './ngrx/actions';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+  openCard: Observable<boolean> = of(false);
   constructor(
     private store: Store
   ) { }

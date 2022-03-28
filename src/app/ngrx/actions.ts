@@ -18,3 +18,16 @@ export const getfavoritesSuccess = createAction(
     '[pokemon] get list Success',
     props<{list: Pokemon[]}>(),
   );
+
+  export const openCard = createAction(
+    '[pokemon] open Card',
+    props<{pokemon: Pokemon}>()
+  );
+
+  export const pokemonInfo = createAction(
+    '[pokemon] card info',
+    props<{pokemon: any}>()
+  );
+  export const closeCard = createAction(
+    '[pokemon] close Card'
+  );

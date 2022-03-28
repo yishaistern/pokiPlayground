@@ -4,9 +4,17 @@
         <div>name</div>
         <div>avatar</div>
     </div>
-    <div class="tablecontent row-item" *ngFor="let item of (list | async); index as i">
+    <div (click)="pickFavorit(item)" class="tablecontent row-item" *ngFor="let item of (list | async); index as i">
         <div class="num">{{i + 1}}.</div>
         <div class="name">{{item.name}}</div>
-        <app-pokemon-image [counter]="i + 1"></app-pokemon-image>
+        <div class="right-side">
+            <div class="like-area">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">
+                    thumb_up
+                </mat-icon>
+            </div>
+            <app-pokemon-image [counter]="i + 1"></app-pokemon-image>
+        </div>
+        
     </div>
 </div>

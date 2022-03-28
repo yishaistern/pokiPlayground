@@ -1,7 +1,11 @@
 import { favoritesPokemon, Pokemon } from "./polkimon";
 
 export interface AppState {
-        card: any;
+        card: {
+            loading: boolean,
+            loaded: boolean,
+            pokemon: any,
+        };
         favorites: favoritesPokemon[];
         cardOpen: boolean;
         list: {

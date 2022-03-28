@@ -19,7 +19,11 @@
 .main {
     flex-grow: 1;
 }
-.card {
+.card.open {
     width: 250px;
+}
+.card {
+    width: 0px;
     background-color: red;
+    transition: width .2s;
 }

@@ -16,11 +16,22 @@
 
 .row-item {
     display: grid;
-    grid-template-columns: 40px 1fr 100px;
+    grid-template-columns: 40px 1fr 150px;
     align-items: center;
     border-bottom: 1px solid gold;
 }
 
 .tablecontent {
     cursor: pointer;
+}
+
+
+.right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.like-area {
+    margin-right: 10px;
 }

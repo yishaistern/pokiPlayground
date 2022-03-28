@@ -9,7 +9,11 @@ export const initialState: AppState = {
          },
          favorites: [],
          cardOpen: false,
-         card: null,
+         card: {
+           loaded: false,
+           loading: false,
+           pokemon: null,
+         },
   };
 
 
@@ -20,4 +24,7 @@ export const initialState: AppState = {
     }),
     on(actions.getPokemonList, (state) => ({ ...state, list: { loaded: false, loading: true, pokemons: []} })),
     on(actions.getPokemonListSuccess, (state, {list}) => ({ ...state, list: { loaded: true, loading: false, pokemons: list} })),
+    on(actions.openCard, (state) => (
+      {...state, card: { ...state.card, loading: true, loaded: false}}
+    )),
   );
