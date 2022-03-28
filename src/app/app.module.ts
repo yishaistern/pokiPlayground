@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatCardModule} from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +19,8 @@ import { PokemonEffects } from './ngrx/effect';
 import { PokemonImageComponent } from './components/pokemon-image/pokemon-image.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { LocationComponent } from './components/location/location.component';
+import { EvaluationComponent } from './components/evaluation/evaluation.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {MatTableModule} from '@angular/material/table';
     PokemonCardComponent,
     PokemonListComponent,
     PokemonfavoritesComponent,
-    PokemonImageComponent
+    PokemonImageComponent,
+    LocationComponent,
+    EvaluationComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ import {MatTableModule} from '@angular/material/table';
     BrowserAnimationsModule,
     MatIconModule,
     MatBadgeModule,
-   
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

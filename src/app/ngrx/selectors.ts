@@ -9,7 +9,31 @@ export const selectFavorites = createSelector(
   (state: AppState) => state.favorites
 );
 
+export const selectFavoritesNames = createSelector(
+  selectFeature,
+  (state: AppState) => {
+    const res: Record<string, boolean> = {};
+    state.favorites.forEach((item) => {
+      res[item.name] = true;
+    });
+    return res;
+  }
+);
+
 export const selectPokemonList = createSelector(
   selectFeature,
   (state: AppState) => state.list.pokemons || []
 );
+
+export const openCard = createSelector(
+  selectFeature,
+  (state: AppState) => state.cardOpen
+);
+
+export const pokemonCard = createSelector(
+  selectFeature,
+  (state: AppState) => state.card
+);
+
+
+

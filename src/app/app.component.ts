@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { getfavorites } from './ngrx/actions';
+import { openCard } from './ngrx/selectors';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.openCard = this.store.select(openCard);
     this.store.dispatch(getfavorites());
   }
 
