@@ -12,9 +12,12 @@ export class PokemonCardComponent implements OnInit {
   card: Subscription | undefined;
   moevs: any[] = [];
   games: any[] = [];
+  id: number = -1;
+  name: string = '';
   type: string = '';
   encounter: string = '';
   spices: { name: string, url: string} | undefined;
+  showInfoArea: boolean =  false;
   constructor(
     private store: Store
   ) { }
@@ -26,8 +29,13 @@ export class PokemonCardComponent implements OnInit {
       this.games = data.pokemon?.game_indices;
       this.encounter = data.pokemon?.location_area_encounters;
       this.spices = data.pokemon?.species;
-
+      this.name = data.pokemon?.name;
+      this.id = data.pokemon?.id;
     });
+  }
+
+  getInfo(encounter: string, spices: string, name: string) {
+
   }
 
 }
