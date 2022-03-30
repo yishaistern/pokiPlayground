@@ -19,6 +19,7 @@ export class PokemonCardComponent implements OnInit {
   encounter: string = '';
   spices: { name: string, url: string} = { name: '', url: ''};
   showInfoArea: boolean =  false;
+  details: any = {};
   constructor(
     private store: Store,
     private pokemonInfo: PokemonInfoService
@@ -42,6 +43,7 @@ export class PokemonCardComponent implements OnInit {
       return;
     }
     this.pokemonInfo.getDetails(encounter, spices, name, id).subscribe((payload) => {
+      this.details = payload;
       console.log(payload);
     });
   }

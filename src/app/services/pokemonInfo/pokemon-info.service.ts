@@ -36,7 +36,15 @@ export class PokemonInfoService {
 
   getLocation(encounter: string, name: string, id: number): Observable<any> {
     return this.http.get(encounter).pipe(
-      map((data: any) => data[0]?.location_area?.name || '')
+      map((data: any) => {
+        const names: any[] = [];
+        data.forEach((item: any) => {
+          if (item.location_area?.name){
+            names.push(item.location_area?.name)
+          }
+        });
+        return names;
+      })
     )
   }
 }
