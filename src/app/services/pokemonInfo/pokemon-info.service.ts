@@ -14,8 +14,9 @@ export class PokemonInfoService {
   }
 
   getEvaluation(spices: string, name: string, id: number): Observable<any> {
+
     return this.http.get(spices).pipe(
-      mergeMap((data: any) => this.http.get(data.evolution_chain).pipe(
+      mergeMap((data: any) => this.http.get(data.evolution_chain.url).pipe(
         map((data:any) => {
           const cain = [];
           let current = data.chain;
@@ -28,11 +29,14 @@ export class PokemonInfoService {
             cain.push(addObj);
             current = current.evolves_to[0]
           }
+          return cain;
         })
       )))
   }
 
   getLocation(encounter: string, name: string, id: number): Observable<any> {
-    
+    return this.http.get(encounter).pipe(
+      map((data: any) => data[0]?.location_area?.name || '')
+    )
   }
 }
