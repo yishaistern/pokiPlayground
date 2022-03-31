@@ -10,6 +10,7 @@ import { PokemonInfoService } from '../../services/pokemonInfo/pokemon-info.serv
   styleUrls: ['./pokemon-card.component.scss']
 })
 export class PokemonCardComponent implements OnInit {
+  panelOpenState = false;
   card: Subscription | undefined;
   moevs: any[] = [];
   games: any[] = [];

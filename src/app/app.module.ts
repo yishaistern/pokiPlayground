@@ -21,6 +21,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { LocationComponent } from './components/location/location.component';
 import { EvaluationComponent } from './components/evaluation/evaluation.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 @NgModule({
@@ -45,7 +48,10 @@ import { EvaluationComponent } from './components/evaluation/evaluation.componen
     BrowserAnimationsModule,
     MatIconModule,
     MatBadgeModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
