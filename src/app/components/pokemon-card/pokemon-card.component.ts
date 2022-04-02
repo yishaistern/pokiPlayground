@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, of, Subscription } from 'rxjs';
+import { filter, Observable, of, Subscription } from 'rxjs';
 import { pokemonCard } from 'src/app/ngrx/selectors';
 import { PokemonInfoService } from '../../services/pokemonInfo/pokemon-info.service';
 
@@ -27,7 +27,10 @@ export class PokemonCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.card = this.store.select(pokemonCard).subscribe(data => {
+    this.card = this.store.select(pokemonCard).pipe(
+      filter(payload => payload !== null)
+    ).
+    subscribe(data => {
       this.type = data.pokemon?.types[0]?.type?.name;
       this.moevs = data.pokemon?.moves;
       this.games = data.pokemon?.game_indices;
@@ -44,8 +47,8 @@ export class PokemonCardComponent implements OnInit {
       return;
     }
     this.pokemonInfo.getDetails(encounter, spices, name, id).subscribe((payload) => {
-      this.details = payload;
-      console.log(payload);
+      this.details = { chain: payload[0], location: payload[1] };
+      console.log(this.details);
     });
   }
 

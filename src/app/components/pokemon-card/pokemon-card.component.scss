@@ -2,6 +2,10 @@
     width: 250px;
     box-sizing: border-box;
     padding: 8px;
+    position: sticky;
+    top: 75px;
+    height: calc(100vh - 75px);
+    overflow: auto;
 }
 
 .head {
@@ -9,4 +13,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.ev-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+    &.me{
+        border: 1px solid gold;
+    }
 }
