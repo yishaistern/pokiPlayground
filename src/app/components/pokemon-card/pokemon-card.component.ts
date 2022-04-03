@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { filter, Observable, of, Subscription } from 'rxjs';
-import { pokemonCard } from 'src/app/ngrx/selectors';
+import { filter, map, Observable, of, Subscription } from 'rxjs';
+import { pokemonCard, selectFavoritesNames } from 'src/app/ngrx/selectors';
 import { PokemonInfoService } from '../../services/pokemonInfo/pokemon-info.service';
 
 @Component({
@@ -21,12 +21,16 @@ export class PokemonCardComponent implements OnInit {
   spices: { name: string, url: string} = { name: '', url: ''};
   showInfoArea: boolean =  false;
   details: any = {};
+  isOnFavoritList: Observable<boolean> = of(false);
   constructor(
     private store: Store,
     private pokemonInfo: PokemonInfoService
   ) { }
 
   ngOnInit(): void {
+    this.isOnFavoritList = this.store.select(selectFavoritesNames).pipe(
+      map((payload) => (payload[this.id]) ? true : false)
+    );
     this.card = this.store.select(pokemonCard).pipe(
       filter(payload => payload !== null)
     ).

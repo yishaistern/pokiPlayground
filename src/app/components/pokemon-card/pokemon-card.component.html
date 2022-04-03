@@ -82,4 +82,25 @@
             </div>
         </mat-expansion-panel>
       </mat-accordion>
+
+    <mat-divider></mat-divider>
+    <div class="footer">
+        <div>
+            <button mat-raised-button color="primary">
+                close card
+            </button>    
+        </div>
+        <div class="second-btn">
+            <button *ngIf="isOnFavoritList" mat-raised-button color="accent">
+                <span style="margin-right: 4px;">add of favorit</span>
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button *ngIf="!isOnFavoritList" mat-raised-button color="warn">
+                <span style="margin-right: 4px;">remove from favorit</span>
+                <mat-icon>favorite</mat-icon>
+            </button>
+        </div>
+
+        
+    </div>
 </div>

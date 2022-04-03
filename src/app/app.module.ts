@@ -24,7 +24,7 @@ import { EvaluationComponent } from './components/evaluation/evaluation.componen
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatCardModule,
     MatExpansionModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
