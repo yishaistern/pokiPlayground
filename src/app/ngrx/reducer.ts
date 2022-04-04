@@ -30,4 +30,7 @@ export const initialState: AppState = {
     on(actions.pokemonInfo, (state, { pokemon }) => (
       {...state, card: { ...state.card, loading: false, loaded: true, pokemon}}
     )),
+    on(actions.closeCard, (state) => (
+      {...state, cardOpen: false, card: { loaded: false, loading: false, pokemon: null}}
+    )),
   );

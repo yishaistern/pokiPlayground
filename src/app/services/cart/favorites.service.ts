@@ -14,16 +14,22 @@ export class favoritesService {
    * @returns the last favorites that was saved
    */
   getLastfavorites():Observable<favoritesPokemon[]> {
+    
+    // mocking a DB of user
+    return of(this.getCuurentList()).pipe(delay(200));
+  }
+
+  getCuurentList(): favoritesPokemon[] {
     const lastfavorites = localStorage.getItem(this.key);
     const parstedfavorites: favoritesPokemon[] = (lastfavorites) ? JSON.parse(lastfavorites) : [];
-    // mocking a DB of user
-    return of(parstedfavorites).pipe(delay(200));
+    return parstedfavorites;
   }
 
   /**
    * add new pokemon to favorites
    */
-  AddTofavorites(favorites: favoritesPokemon[], pokemon: Pokemon, index: number): Observable<favoritesPokemon[]> {
+  AddTofavorites( pokemon: Pokemon, index: number): Observable<favoritesPokemon[]> {
+    const favorites = this.getCuurentList();
     const newfavorites: favoritesPokemon[] = [ {...pokemon, timeStamp: new Date().getTime(), indexInDataSet: index}, ...favorites];
     localStorage.setItem(this.key, JSON.stringify(newfavorites));
     return of(newfavorites).pipe(delay(200));

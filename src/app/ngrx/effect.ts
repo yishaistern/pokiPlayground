@@ -4,7 +4,7 @@ import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { favoritesService } from '../services/cart/favorites.service';
 import { ListService } from '../services/list/list.service';
-import { getfavoritesSuccess, getPokemonListSuccess, openCard, pokemonInfo } from './actions';
+import { getfavoritesSuccess, getPokemonListSuccess, likePkoemon, openCard, pokemonInfo } from './actions';
 
 @Injectable()
 export class PokemonEffects {
@@ -24,13 +24,23 @@ export class PokemonEffects {
     ofType(openCard),
     mergeMap((action) => this.list.getpokemon(action.pokemon)
       .pipe(
-        map(pokemon => pokemonInfo({pokemon})),
+        map(pokemon => pokemonInfo({pokemon, ...action.pokemon})),
         // map(list => ({ type:  '[pokemon] get list success', payload: { list: list} })),
         catchError(() => EMPTY)
       ))
     )
   );
 
+  llikePokemon$ = createEffect(() => this.actions$.pipe(
+    ofType(likePkoemon),
+    mergeMap((action) => this.list.getpokemon(action.pokemon)
+      .pipe(
+        map(pokemon => pokemonInfo({pokemon, ...action.pokemon})),
+        // map(list => ({ type:  '[pokemon] get list success', payload: { list: list} })),
+        catchError(() => EMPTY)
+      ))
+    )
+  );
   loadPokemons$ = createEffect(() => this.actions$.pipe(
     ofType( '[pokemon] get list'),
     mergeMap(() => this.list.getList()

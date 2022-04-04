@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { filter, map, Observable, of, Subscription } from 'rxjs';
+import { closeCard, likePkoemon } from 'src/app/ngrx/actions';
 import { pokemonCard, selectFavoritesNames } from 'src/app/ngrx/selectors';
 import { PokemonInfoService } from '../../services/pokemonInfo/pokemon-info.service';
 
@@ -18,6 +19,7 @@ export class PokemonCardComponent implements OnInit {
   name: string = '';
   type: string = '';
   encounter: string = '';
+  url: string = '';
   spices: { name: string, url: string} = { name: '', url: ''};
   showInfoArea: boolean =  false;
   details: any = {};
@@ -42,6 +44,7 @@ export class PokemonCardComponent implements OnInit {
       this.spices = data.pokemon?.species;
       this.name = data.pokemon?.name;
       this.id = data.pokemon?.id;
+      this.url =  data.pokemon?.url;
       this.getInfo(this.encounter, this.spices?.url, this.name, this.id)
     });
   }
@@ -54,6 +57,14 @@ export class PokemonCardComponent implements OnInit {
       this.details = { chain: payload[0], location: payload[1] };
       console.log(this.details);
     });
+  }
+
+  close() {
+    this.store.dispatch(closeCard())
+  }
+
+  addFavorit(){
+    this.store.dispatch(likePkoemon({pokemon: { url: this.url, name: this.name}}))
   }
 
 }
